@@ -15,7 +15,7 @@ LOCATE : Visual Branding Presentation
             background-color: #f4f4f4;
         }
         .container {
-            max-width: 900px;
+            max-width: 100%;
             margin: auto;
             padding: 20px;
         }
