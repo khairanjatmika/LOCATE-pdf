@@ -1,5 +1,3 @@
-# landing-page-pdf
-LOCATE : Visual Branding Presentation 
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -31,28 +29,64 @@ LOCATE : Visual Branding Presentation
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        .nav-buttons {
+            margin-top: 20px;
+        }
+        .nav-buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+        }
+        .nav-buttons button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>LOCATE : VISUAL BRANDING PRESENTATION</h1>
         <div class="image-container">
-            <img src="slide 1.png" alt="Slide 1">
-            <img src="slide 2.png" alt="Slide 2">
-            <img src="slide 3.png" alt="Slide 3">
-            <img src="slide 4.png" alt="Slide 4">
-            <img src="slide 5.png" alt="Slide 5">
-            <img src="slide 6.png" alt="Slide 6">
-            <img src="slide 7.png" alt="Slide 7">
-            <img src="slide 8.png" alt="Slide 8">
-            <img src="slide 9.png" alt="Slide 9">
-            <img src="slide 10.png" alt="Slide 10">
-            <img src="slide 11.png" alt="Slide 11">
-            <img src="slide 12.png" alt="Slide 12">
-            <img src="slide 13.png" alt="Slide 13">
-            <img src="slide 14.png" alt="Slide 14">
-            <img src="slide 15.png" alt="Slide 15">
+            <img id="slide" src="slide 1.png" alt="Slide 1">
+        </div>
+        <div class="nav-buttons">
+            <button id="prev" onclick="prevSlide()" disabled>Previous</button>
+            <button id="next" onclick="nextSlide()">Next</button>
         </div>
     </div>
+
+    <script>
+        const slides = [
+            "slide 1.png", "slide 2.png", "slide 3.png", "slide 4.png", "slide 5.png",
+            "slide 6.png", "slide 7.png", "slide 8.png", "slide 9.png", "slide 10.png",
+            "slide 11.png", "slide 12.png", "slide 13.png", "slide 14.png", "slide 15.png"
+        ];
+        let currentIndex = 0;
+
+        function updateSlide() {
+            document.getElementById("slide").src = slides[currentIndex];
+            document.getElementById("prev").disabled = currentIndex === 0;
+            document.getElementById("next").disabled = currentIndex === slides.length - 1;
+        }
+
+        function nextSlide() {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlide();
+            }
+        }
+    </script>
 </body>
 </html>
